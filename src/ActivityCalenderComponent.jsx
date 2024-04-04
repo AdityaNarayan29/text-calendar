@@ -1,22 +1,25 @@
-// src/ActivityCalendar.js
 import React from 'react';
 import ActivityCalendar from 'react-activity-calendar';
+import { generateListOfDaysWithLevels } from './Components/Logic/generateListOfDaysWithLevels';
 
 const ActivityCalendarComponent = () => {
-  // Dummy data for demonstration
-  const data = [
-    { date: '2024-03-19', count: 5 },
-    { date: '2024-03-20', count: 7 },
-    { date: '2024-03-21', count: 5 },
-    // Add more data as needed
-  ];
 
-  return (
-    <div>
-      <h2>Activity Calendar</h2>
-      <ActivityCalendar data={data} />
-    </div>
-  );
+  // Example usage:
+  const startDate = "2024-03-24";
+  const text = ("Love if u want").toUpperCase();
+const result = generateListOfDaysWithLevels(startDate, text);
+
+return (
+  <div>
+    <h2>Needs wrap b4 npm</h2>
+    <ActivityCalendar
+      loading={false}
+      hideColorLegend={true}
+      hideMonthLabels={true}
+      hideTotalCount={true}
+      data={result} />
+  </div>
+);
 };
 
 export default ActivityCalendarComponent;
