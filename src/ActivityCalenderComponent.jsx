@@ -1,25 +1,25 @@
 import React from 'react';
 import ActivityCalendar from 'react-activity-calendar';
 import { generateListOfDaysWithLevels } from './Components/Logic/generateListOfDaysWithLevels';
+import getLatestSundayDate from './Components/Logic/getLatestSundayDate';
 
-const ActivityCalendarComponent = () => {
+const ActivityCalendarComponent = ({ header, message, ...rest }) => {
 
-  // Example usage:
-  const startDate = "2024-03-24";
-  const text = ("Love if u want").toUpperCase();
-const result = generateListOfDaysWithLevels(startDate, text);
+  const text = message.toUpperCase();
+  const latestSundayDate = getLatestSundayDate();
+  const result = generateListOfDaysWithLevels(latestSundayDate, text);
 
-return (
-  <div>
-    <h2>Needs wrap b4 npm</h2>
-    <ActivityCalendar
-      loading={false}
-      hideColorLegend={true}
-      hideMonthLabels={true}
-      hideTotalCount={true}
-      data={result} />
-  </div>
-);
+  return (
+    <>
+      <h2>{header}</h2>
+      <ActivityCalendar
+        loading={false}
+        hideColorLegend={true}
+        hideMonthLabels={true}
+        hideTotalCount={true}
+        data={result} {...rest} />
+    </>
+  );
 };
 
 export default ActivityCalendarComponent;
