@@ -22,7 +22,8 @@ export const generateListOfDaysWithLevels = (startDate, text) => {
     if (alphabets.hasOwnProperty(letter)) {
       for (let index = 0; index < alphabets[letter].size; index++) {
         if (alphabets[letter].activeDays.includes(index)) {
-          daysList[daysIndex].level = 4;
+          daysList[daysIndex].level = Math.floor(Math.random() * 4) + 1;
+
         } else {
           daysList[daysIndex].level = 0;
         }
